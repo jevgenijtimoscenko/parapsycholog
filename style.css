@@ -1,13 +1,13 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #0e0e0e; /* глубокий чёрный фон */
-  color: #f5f5f5; /* светлый текст */
+  background-color: #0e0e0e;
+  color: #f5f5f5;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-/* ====== HEADER ====== */
+/* HEADER */
 header {
   background-color: #111;
   padding: 2rem 1rem;
@@ -15,7 +15,7 @@ header {
 }
 
 h1 {
-  color: #c8a45d; /* золотистый акцент */
+  color: #c8a45d;
   font-size: 2.5rem;
   margin-bottom: 0.2rem;
 }
@@ -31,7 +31,7 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* ====== MAIN ====== */
+/* MAIN */
 main {
   padding: 2rem;
 }
@@ -40,10 +40,23 @@ section {
   margin-bottom: 2rem;
 }
 
-/* ====== FOOTER ====== */
+
+
+/* ====== Фаза Луны ====== */
+.moon-container {
+  margin: 20px auto;
+}
+
+.moon-info {
+  font-size: 16px;
+  color: #c8a45d;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 20px 10px 30px 10px;
   background: linear-gradient(to top, #050505, #111);
   color: #dcdcdc;
   font-family: 'Georgia', serif;
@@ -51,21 +64,15 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ====== Фаза Луны ====== */
-.moon-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-  padding: 10px 0;
-  border-bottom: 2px solid #c8a45d; /* золотая линия */
+footer hr {
+  border: none;
+  height: 1px;
+  background-color: #444;
+  margin-bottom: 10px;
 }
 
 .moon-info {
   font-size: 16px;
-  font-weight: bold;
-  color: #f5f5f5;
-}
-
-.moon-info span {
-  color: #c8a45d; /* выделение текста фазы */
+  color: #dcdcdc;
+  margin-bottom: 8px;
 }
