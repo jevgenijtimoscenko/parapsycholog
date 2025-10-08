@@ -53,9 +53,10 @@ footer {
 
 /* ====== MOON ====== */
 .moon-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
   position: relative;
-  display: inline-block;
-  margin: 15px auto;
 }
 
 .moon {
@@ -67,7 +68,8 @@ footer {
     0 0 25px 10px rgba(180, 180, 255, 0.3),
     0 0 60px 20px rgba(150, 150, 255, 0.1);
   transition: all 0.6s ease-in-out;
-  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
 }
 
 .moon:hover {
@@ -77,21 +79,30 @@ footer {
   transform: scale(1.03);
 }
 
+/* Маска для реальной фазы Луны */
+.moon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #0e0e0e;
+  transform: translateX(var(--mask-shift, 0%));
+  transition: transform 0.5s ease;
+}
+
+/* ====== Текст под луной ====== */
 .moon-info {
   font-size: 16px;
   margin-top: 10px;
-  color: #dcdcdc; /* мягкий серебристый цвет */
-}
-
-.moon-sign {
-  font-size: 14px;
-  color: #cfcfcf; /* серебристый */
-  margin-top: 5px;
+  color: #dcdcdc;
 }
 
 #phase-date {
   font-size: 12px;
-  color: #aaaaaa; /* серебристый, чуть темнее для контраста */
+  color: #aaaaaa;
   margin-top: 4px;
   display: block;
 }
