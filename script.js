@@ -62,39 +62,10 @@ function getMoonSign(day) {
   return "Рыбы";
 }
 
-// ====== Луна: цвет, тень и маска фазы ======
-function setMoonStyleAndMask(phase) {
-  const moon = document.getElementById("moon-img");
+// ====== Маска для фазы Луны ======
+function setMoonPhaseMask(phase) {
+  const moon = document.querySelector('.moon');
 
-  // Цвет и тень Луны
-  let bgColor, shadow;
-  switch(phase) {
-    case "Новолуние":
-      bgColor = "#1b1b2f";
-      shadow = "0 0 20px 5px rgba(0,0,0,0.7)";
-      break;
-    case "Растущая Луна":
-      bgColor = "#f0e6d2";
-      shadow = "0 0 25px 8px rgba(240,230,210,0.7)";
-      break;
-    case "Первая четверть":
-      bgColor = "#f0e6d2";
-      shadow = "0 0 30px 10px rgba(240,230,210,0.8)";
-      break;
-    case "Полнолуние":
-      bgColor = "#fffacd";
-      shadow = "0 0 40px 15px rgba(255,250,205,0.9)";
-      break;
-    case "Убывающая Луна":
-      bgColor = "#e0d8b0";
-      shadow = "0 0 25px 8px rgba(224,216,176,0.7)";
-      break;
-  }
-
-  moon.style.background = bgColor;
-  moon.style.boxShadow = shadow;
-
-  // Маска для отображения фазы через градиент
   let shift;
   switch(phase) {
     case "Новолуние": shift = "100%"; break;
@@ -104,26 +75,7 @@ function setMoonStyleAndMask(phase) {
     case "Убывающая Луна": shift = "-25%"; break;
   }
 
-  moon.style.setProperty('--mask-shift', shift);
-
-  // Добавляем правило ::after для маски, если его нет
-  if (!Array.from(document.styleSheets[0].cssRules)
-            .some(rule => rule.selectorText === ".moon::after")) {
-    document.styleSheets[0].insertRule(`
-      .moon::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background: linear-gradient(to right, #0e0e0e 50%, transparent 50%);
-        transform: translateX(var(--mask-shift));
-        transition: transform 0.5s ease;
-      }
-    `, 0);
-  }
+  moon.style.setProperty('--mask-side', shift);
 }
 
 // ====== Инициализация ======
@@ -134,4 +86,5 @@ document.getElementById("phase-name").innerText = phase;
 document.getElementById("moon-sign").innerText = `Луна в знаке: ${getMoonSign(today)}`;
 document.getElementById("phase-date").innerText = new Date().toLocaleDateString("ru-RU");
 
-setMoonStyleAndMask(phase);
+setMoonPhaseMask(phase);
+
