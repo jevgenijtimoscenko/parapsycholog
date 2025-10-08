@@ -1,34 +1,38 @@
-// ====== Загрузка данных из data.json ======
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    // ====== Услуги ======
-    const servicesList = document.getElementById('services-list');
-    if (servicesList && data.services) {
-      data.services.forEach(service => {
-        const li = document.createElement('li');
-        li.textContent = service;
-        servicesList.appendChild(li);
-      });
-    }
+// ====== Функция загрузки данных из data.json ======
+function loadData() {
+  // Проверяем, на какой странице мы находимся
+  const path = window.location.pathname;
 
-    // ====== Блог ======
-    const blogList = document.getElementById('blog-list');
-    if (blogList && data.blog) {
-      data.blog.forEach(post => {
-        const article = document.createElement('article');
-        const title = document.createElement('h3');
-        title.textContent = post.title;
-        const content = document.createElement('p');
-        content.textContent = post.content;
-        article.appendChild(title);
-        article.appendChild(content);
-        blogList.appendChild(article);
-      });
-    }
-  })
-  .catch(err => console.error('Ошибка загрузки данных:', err));
+  // === Только для blog.html ===
+  if (path.includes("blog.html")) {
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        // ====== Блог ======
+        const blogList = document.getElementById('blog-list');
+        if (blogList && data.blog) {
+          data.blog.forEach(post => {
+            const article = document.createElement('article');
+            const title = document.createElement('h3');
+            title.textContent = post.title;
+            const content = document.createElement('p');
+            content.textContent = post.content;
+            article.appendChild(title);
+            article.appendChild(content);
+            blogList.appendChild(article);
+          });
+        }
 
+        // ====== Фаза Луны ======
+        const phaseEl = document.getElementById("phase-name");
+        if (phaseEl) {
+          const phase = getMoonPhase();
+          phaseEl.textContent = `Фаза Луны: ${phase}`;
+        }
+      })
+      .catch(err => console.error('Ошибка загрузки данных:', err));
+  }
+}
 
 // ====== Фаза Луны ======
 function getMoonPhase(date = new Date()) {
@@ -47,6 +51,5 @@ function getMoonPhase(date = new Date()) {
   return "Убывающая Луна";
 }
 
-// Инициализация
-document.getElementById("phase-name").textContent = getMoonPhase();
-
+// ====== Инициализация ======
+document.addEventListener("DOMContentLoaded", loadData);
