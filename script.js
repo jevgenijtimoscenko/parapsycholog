@@ -1,37 +1,33 @@
-// ====== Функция загрузки данных из data.json ======
-function loadData() {
-  // Проверяем, на какой странице мы находимся
-  const path = window.location.pathname;
-
-  // === Только для blog.html ===
-  if (path.includes("blog.html")) {
-    fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        // ====== Блог ======
-        const blogList = document.getElementById('blog-list');
-        if (blogList && data.blog) {
-          data.blog.forEach(post => {
-            const article = document.createElement('article');
-            const title = document.createElement('h3');
-            title.textContent = post.title;
-            const content = document.createElement('p');
-            content.textContent = post.content;
-            article.appendChild(title);
-            article.appendChild(content);
-            blogList.appendChild(article);
-          });
-        }
-
-        // ====== Фаза Луны ======
-        const phaseEl = document.getElementById("phase-name");
-        if (phaseEl) {
-          const phase = getMoonPhase();
-          phaseEl.textContent = `Фаза Луны: ${phase}`;
-        }
-      })
-      .catch(err => console.error('Ошибка загрузки данных:', err));
+// ====== Массив статей ======
+const blogPosts = [
+  {
+    title: "Сознание и энергия",
+    content: "Исследуем, как сознание влияет на энергетические поля и нашу жизнь."
+  },
+  {
+    title: "Введение в парапсихологию",
+    content: "Основные методы и техники для понимания невидимых сил."
   }
+  // Чтобы добавить новую статью, просто добавь объект сюда:
+  // { title: "Новая статья", content: "Текст статьи" }
+];
+
+// ====== Функция для отображения статей ======
+function renderBlog() {
+  const blogList = document.getElementById('blog-list');
+  if (!blogList) return;
+
+  blogList.innerHTML = ""; // очищаем, чтобы не дублировалось
+  blogPosts.forEach(post => {
+    const article = document.createElement('article');
+    const title = document.createElement('h3');
+    title.textContent = post.title;
+    const content = document.createElement('p');
+    content.textContent = post.content;
+    article.appendChild(title);
+    article.appendChild(content);
+    blogList.appendChild(article);
+  });
 }
 
 // ====== Фаза Луны ======
@@ -52,4 +48,19 @@ function getMoonPhase(date = new Date()) {
 }
 
 // ====== Инициализация ======
-document.addEventListener("DOMContentLoaded", loadData);
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname;
+
+  // === Главная страница ===
+  if (path.includes("index.html") || path === "/" || path.endsWith("/")) {
+    const phaseEl = document.getElementById("phase-name");
+    if (phaseEl) {
+      phaseEl.textContent = `Фаза Луны: ${getMoonPhase()}`;
+    }
+  }
+
+  // === Блог ===
+  if (path.includes("blog.html")) {
+    renderBlog();
+  }
+});
