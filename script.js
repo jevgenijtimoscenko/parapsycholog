@@ -12,25 +12,25 @@ fetch('data.json')
       });
     }
 
-    // ====== Блог ======
     const blogList = document.getElementById('blog-list');
-    if (blogList && data.blog) {
+if (blogList) {
+  fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
       data.blog.forEach(post => {
         const article = document.createElement('article');
-
         const title = document.createElement('h3');
         title.textContent = post.title;
-
         const content = document.createElement('p');
         content.textContent = post.content;
-
         article.appendChild(title);
         article.appendChild(content);
         blogList.appendChild(article);
       });
-    }
-  })
-  .catch(err => console.error('Ошибка загрузки данных:', err));
+    })
+    .catch(err => console.error('Ошибка загрузки данных:', err));
+}
+
 
 
 // ====== Фаза Луны ======
