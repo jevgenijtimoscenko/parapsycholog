@@ -1,37 +1,10 @@
-// ====== Fetch данных для сайта ======
+// ====== Загрузка данных из data.json и заполнение сайта ======
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
-    // Услуги
+    // ====== Услуги ======
     const servicesList = document.getElementById('services-list');
-    data.services.forEach(service => {
-      const li = document.createElement('li');
-      li.textContent = service;
-      servicesList.appendChild(li);
-    });
-
-    // Блог
-    const blogList = document.getElementById('blog-list');
-    data.blog.forEach(post => {
-      const article = document.createElement('article');
-      const title = document.createElement('h3');
-      title.textContent = post.title;
-      const content = document.createElement('p');
-      content.textContent = post.content;
-      article.appendChild(title);
-      article.appendChild(content);
-      blogList.appendChild(article);
-    });
-  })
-  .catch(err => console.error('Ошибка загрузки данных:', err));
-
-// ====== Загрузка данных из data.json ======
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    // Услуги
-    const servicesList = document.getElementById('services-list');
-    if (servicesList) {
+    if (servicesList && data.services) {
       data.services.forEach(service => {
         const li = document.createElement('li');
         li.textContent = service;
@@ -39,15 +12,18 @@ fetch('data.json')
       });
     }
 
-    // Блог
+    // ====== Блог ======
     const blogList = document.getElementById('blog-list');
-    if (blogList) {
+    if (blogList && data.blog) {
       data.blog.forEach(post => {
         const article = document.createElement('article');
+
         const title = document.createElement('h3');
         title.textContent = post.title;
+
         const content = document.createElement('p');
         content.textContent = post.content;
+
         article.appendChild(title);
         article.appendChild(content);
         blogList.appendChild(article);
@@ -58,11 +34,10 @@ fetch('data.json')
 
 
 // ====== Фаза Луны ======
-function getMoonPhase() {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = now.getMonth() + 1;
-  const day = now.getDate();
+function getMoonPhase(date = new Date()) {
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
 
   let r = (year % 100) % 19;
   r = (r * 11) % 30 + month + day;
@@ -91,14 +66,17 @@ function getMoonSign(day) {
   return "Рыбы";
 }
 
-// ====== Инициализация ======
-const phase = getMoonPhase();
-const today = new Date().getDate();
+// ====== Инициализация элементов Луны ======
+(function initMoon() {
+  const today = new Date();
+  const phase = getMoonPhase(today);
+  const day = today.getDate();
 
-const phaseEl = document.getElementById("phase-name");
-const signEl = document.getElementById("moon-sign");
-const dateEl = document.getElementById("phase-date");
+  const phaseEl = document.getElementById("phase-name");
+  const signEl = document.getElementById("moon-sign");
+  const dateEl = document.getElementById("phase-date");
 
-if (phaseEl) phaseEl.textContent = phase;
-if (signEl) signEl.textContent = `Луна в знаке: ${getMoonSign(today)}`;
-if (dateEl) dateEl.textContent = new Date().toLocaleDateString("ru-RU");
+  if (phaseEl) phaseEl.textContent = phase;
+  if (signEl) signEl.textContent = `Луна в знаке: ${getMoonSign(day)}`;
+  if (dateEl) dateEl.textContent = today.toLocaleDateString("ru-RU");
+})();
