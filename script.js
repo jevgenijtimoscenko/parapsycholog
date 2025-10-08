@@ -2,7 +2,7 @@
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
-    // ====== Услуги (только если есть контейнер) ======
+    // ====== Услуги ======
     const servicesList = document.getElementById('services-list');
     if (servicesList && data.services) {
       data.services.forEach(service => {
@@ -12,7 +12,7 @@ fetch('data.json')
       });
     }
 
-    // ====== Блог (только если есть контейнер) ======
+    // ====== Блог ======
     const blogList = document.getElementById('blog-list');
     if (blogList && data.blog) {
       data.blog.forEach(post => {
@@ -30,12 +30,13 @@ fetch('data.json')
   .catch(err => console.error('Ошибка загрузки данных:', err));
 
 
-// ====== Фаза Луны (упрощённая, но более точная) ======
+// ====== Фаза Луны (реальная, через лунный цикл) ======
 function getMoonPhase(date = new Date()) {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
 
+  // приближённый расчёт по Дж. Конвэйну
   let c = 0, e = 0, jd = 0, b = 0;
   if (month < 3) {
     c = year - 1;
@@ -45,7 +46,7 @@ function getMoonPhase(date = new Date()) {
     e = month;
   }
   jd = 365.25 * c + 30.6 * (e + 1) + day - 694039.09;
-  jd /= 29.5305882;
+  jd /= 29.5305882; // средний лунный цикл
   b = jd - Math.floor(jd);
   if (b < 0) b += 1;
 
@@ -59,34 +60,14 @@ function getMoonPhase(date = new Date()) {
   return "Убывающая Луна";
 }
 
-// ====== Приближённый знак Луны ======
-function getMoonSign(date = new Date()) {
-  const day = date.getDate();
-  if (day <= 2) return "Овен";
-  if (day <= 5) return "Телец";
-  if (day <= 8) return "Близнецы";
-  if (day <= 11) return "Рак";
-  if (day <= 14) return "Лев";
-  if (day <= 17) return "Дева";
-  if (day <= 20) return "Весы";
-  if (day <= 23) return "Скорпион";
-  if (day <= 26) return "Стрелец";
-  if (day <= 29) return "Козерог";
-  if (day <= 30) return "Водолей";
-  return "Рыбы";
-}
-
-// ====== Инициализация Луны ======
+// ====== Инициализация ======
 (function initMoon() {
   const today = new Date();
   const phase = getMoonPhase(today);
-  const sign = getMoonSign(today);
 
   const phaseEl = document.getElementById("phase-name");
-  const signEl = document.getElementById("moon-sign");
   const dateEl = document.getElementById("phase-date");
 
-  if (phaseEl) phaseEl.textContent = phase;
-  if (signEl) signEl.textContent = `Луна в знаке: ${sign}`;
+  if (phaseEl) phaseEl.textContent = `Фаза Луны: ${phase}`;
   if (dateEl) dateEl.textContent = today.toLocaleDateString("ru-RU");
 })();
