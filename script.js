@@ -23,3 +23,51 @@ fetch('data.json')
     });
   })
   .catch(err => console.error('Ошибка загрузки данных:', err));
+
+function getMoonPhase() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth() + 1;
+  const day = now.getDate();
+
+  let r = (year % 100) % 19;
+  r = (r * 11) % 30 + month + day;
+  r = r % 30;
+
+  if (r < 1) return "Новолуние";
+  if (r < 7) return "Растущая Луна";
+  if (r < 15) return "Первая четверть";
+  if (r < 22) return "Полнолуние";
+  return "Убывающая Луна";
+}
+
+function setMoonStyle(phase) {
+  const moon = document.getElementById("moon-img");
+  switch(phase) {
+    case "Новолуние":
+      moon.style.background = "#1b1b2f";
+      moon.style.boxShadow = "0 0 20px 5px rgba(0,0,0,0.7)";
+      break;
+    case "Растущая Луна":
+      moon.style.background = "#f0e6d2";
+      moon.style.boxShadow = "0 0 25px 8px rgba(240,230,210,0.7)";
+      break;
+    case "Первая четверть":
+      moon.style.background = "#f0e6d2";
+      moon.style.boxShadow = "0 0 30px 10px rgba(240,230,210,0.8)";
+      break;
+    case "Полнолуние":
+      moon.style.background = "#fffacd";
+      moon.style.boxShadow = "0 0 40px 15px rgba(255,250,205,0.9)";
+      break;
+    case "Убывающая Луна":
+      moon.style.background = "#e0d8b0";
+      moon.style.boxShadow = "0 0 25px 8px rgba(224,216,176,0.7)";
+      break;
+  }
+}
+
+const phase = getMoonPhase();
+document.getElementById("phase-name").innerText = phase;
+document.getElementById("phase-date").innerText = new Date().toLocaleDateString("ru-RU");
+setMoonStyle(phase);
