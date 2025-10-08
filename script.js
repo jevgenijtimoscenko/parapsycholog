@@ -27,6 +27,7 @@ fetch('data.json')
 
 
 
+
 // ====== Фаза Луны ======
 function getMoonPhase() {
   const now = new Date();
@@ -65,55 +66,59 @@ function getMoonSign(day) {
 function setMoonStyleAndMask(phase) {
   const moon = document.getElementById("moon-img");
 
-  // Цвет и тень
+  // Цвет и тень Луны
+  let bgColor, shadow;
   switch(phase) {
     case "Новолуние":
-      moon.style.background = "#1b1b2f";
-      moon.style.boxShadow = "0 0 20px 5px rgba(0,0,0,0.7)";
+      bgColor = "#1b1b2f";
+      shadow = "0 0 20px 5px rgba(0,0,0,0.7)";
       break;
     case "Растущая Луна":
-      moon.style.background = "#f0e6d2";
-      moon.style.boxShadow = "0 0 25px 8px rgba(240,230,210,0.7)";
+      bgColor = "#f0e6d2";
+      shadow = "0 0 25px 8px rgba(240,230,210,0.7)";
       break;
     case "Первая четверть":
-      moon.style.background = "#f0e6d2";
-      moon.style.boxShadow = "0 0 30px 10px rgba(240,230,210,0.8)";
+      bgColor = "#f0e6d2";
+      shadow = "0 0 30px 10px rgba(240,230,210,0.8)";
       break;
     case "Полнолуние":
-      moon.style.background = "#fffacd";
-      moon.style.boxShadow = "0 0 40px 15px rgba(255,250,205,0.9)";
+      bgColor = "#fffacd";
+      shadow = "0 0 40px 15px rgba(255,250,205,0.9)";
       break;
     case "Убывающая Луна":
-      moon.style.background = "#e0d8b0";
-      moon.style.boxShadow = "0 0 25px 8px rgba(224,216,176,0.7)";
+      bgColor = "#e0d8b0";
+      shadow = "0 0 25px 8px rgba(224,216,176,0.7)";
       break;
   }
 
-  // Маска для отображения фазы
+  moon.style.background = bgColor;
+  moon.style.boxShadow = shadow;
+
+  // Маска для отображения фазы через градиент
   let shift;
   switch(phase) {
-    case "Новолуние": shift = "50%"; break;
+    case "Новолуние": shift = "100%"; break;
     case "Растущая Луна": shift = "25%"; break;
     case "Первая четверть": shift = "0%"; break;
     case "Полнолуние": shift = "-50%"; break;
     case "Убывающая Луна": shift = "-25%"; break;
   }
 
-  // Создаём CSS-переменную для маски
   moon.style.setProperty('--mask-shift', shift);
 
-  // Добавляем правило для ::after (маска)
-  if (!Array.from(document.styleSheets[0].cssRules).some(rule => rule.selectorText === ".moon::after")) {
+  // Добавляем правило ::after для маски, если его нет
+  if (!Array.from(document.styleSheets[0].cssRules)
+            .some(rule => rule.selectorText === ".moon::after")) {
     document.styleSheets[0].insertRule(`
       .moon::after {
         content: '';
         position: absolute;
         top: 0;
-        left: 50%;
-        width: 50%;
+        left: 0;
+        width: 100%;
         height: 100%;
-        background: #0e0e0e;
-        border-radius: 0 50% 50% 0;
+        border-radius: 50%;
+        background: linear-gradient(to right, #0e0e0e 50%, transparent 50%);
         transform: translateX(var(--mask-shift));
         transition: transform 0.5s ease;
       }
