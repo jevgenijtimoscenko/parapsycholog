@@ -1,4 +1,4 @@
-
+// ====== Fetch данных для сайта ======
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
@@ -25,74 +25,44 @@ fetch('data.json')
   })
   .catch(err => console.error('Ошибка загрузки данных:', err));
 
-// ====== Получаем услуги и блог ======
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    const servicesList = document.getElementById('services-list');
-    data.services.forEach(service => {
-      const li = document.createElement('li');
-      li.textContent = service;
-      servicesList.appendChild(li);
-    });
+// ====== Фаза Луны ======
+function getMoonPhase() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth() + 1;
+  const day = now.getDate();
 
-    const blogList = document.getElementById('blog-list');
-    data.blog.forEach(post => {
-      const article = document.createElement('article');
-      const title = document.createElement('h3');
-      title.textContent = post.title;
-      const content = document.createElement('p');
-      content.textContent = post.content;
-      article.appendChild(title);
-      article.appendChild(content);
-      blogList.appendChild(article);
-    });
-  })
-  .catch(err => console.error('Ошибка загрузки данных:', err));
+  let r = (year % 100) % 19;
+  r = (r * 11) % 30 + month + day;
+  r = r % 30;
 
-// ====== Получаем фазу и знак Луны через API ======
-async function updateMoon() {
-  try {
-    const today = new Date();
-    const dateStr = today.toISOString().split('T')[0]; // формат YYYY-MM-DD
-
-    // Пример API, подставь свой реальный URL
-    const response = await fetch(`https://api.example.com/moon?date=${dateStr}`);
-    const data = await response.json();
-
-    // Предположим, API возвращает { phase: "Полнолуние", sign: "Рыбы" }
-    const phase = data.phase;
-    const sign = data.sign;
-
-    document.getElementById("phase-name").innerText = phase;
-    document.getElementById("moon-sign").innerText = `Луна в знаке: ${sign}`;
-    document.getElementById("phase-date").innerText = today.toLocaleDateString("ru-RU");
-
-    // Маска фазы
-    setMoonPhaseMask(phase);
-
-  } catch (error) {
-    console.error('Ошибка при получении данных о Луне:', error);
-  }
+  if (r < 1) return "Новолуние";
+  if (r < 7) return "Растущая Луна";
+  if (r < 15) return "Первая четверть";
+  if (r < 22) return "Полнолуние";
+  return "Убывающая Луна";
 }
 
-// ====== Маска фазы Луны ======
-function setMoonPhaseMask(phase) {
-  const moon = document.getElementById('moon-img');
-  let shift;
-  switch(phase) {
-    case "Новолуние": shift = "100%"; break;
-    case "Растущая Луна": shift = "25%"; break;
-    case "Первая четверть": shift = "0%"; break;
-    case "Полнолуние": shift = "-50%"; break;
-    case "Убывающая Луна": shift = "-25%"; break;
-    default: shift = "0%";
-  }
-  moon.style.setProperty('--mask-shift', shift);
+// ====== Знак Луны ======
+function getMoonSign(day) {
+  if (day <= 2) return "Овен";
+  if (day <= 5) return "Телец";
+  if (day <= 8) return "Близнецы";
+  if (day <= 11) return "Рак";
+  if (day <= 14) return "Лев";
+  if (day <= 17) return "Дева";
+  if (day <= 20) return "Весы";
+  if (day <= 23) return "Скорпион";
+  if (day <= 26) return "Стрелец";
+  if (day <= 29) return "Козерог";
+  if (day <= 30) return "Водолей";
+  return "Рыбы";
 }
 
-// ====== Запуск ======
-updateMoon();
+// ====== Вставка данных в футер ======
+const phase = getMoonPhase();
+const today = new Date().getDate();
 
-
-
+document.getElementById("phase-name").innerText = `Фаза Луны: ${phase}`;
+document.getElementById("moon-sign").innerText = `Луна в знаке: ${getMoonSign(today)}`;
+document.getElementById("phase-date").innerText = `Сегодня: ${new Date().toLocaleDateString("ru-RU")}`;
