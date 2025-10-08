@@ -24,6 +24,8 @@ fetch('data.json')
   })
   .catch(err => console.error('Ошибка загрузки данных:', err));
 
+
+// Фаза Луны
 function getMoonPhase() {
   const now = new Date();
   const year = now.getFullYear();
@@ -41,6 +43,10 @@ function getMoonPhase() {
   return "Убывающая Луна";
 }
 
+
+}
+
+// Стиль луны по фазе
 function setMoonStyle(phase) {
   const moon = document.getElementById("moon-img");
   switch(phase) {
@@ -67,7 +73,26 @@ function setMoonStyle(phase) {
   }
 }
 
+// Пример приближённого знака Луны по дню месяца
+function getMoonSign(day) {
+  if (day <= 2) return "Овен";
+  if (day <= 5) return "Телец";
+  if (day <= 8) return "Близнецы";
+  if (day <= 11) return "Рак";
+  if (day <= 14) return "Лев";
+  if (day <= 17) return "Дева";
+  if (day <= 20) return "Весы";
+  if (day <= 23) return "Скорпион";
+  if (day <= 26) return "Стрелец";
+  if (day <= 29) return "Козерог";
+  if (day <= 30) return "Водолей";
+  return "Рыбы";
+}
+
+// Вставка данных в футер
 const phase = getMoonPhase();
 document.getElementById("phase-name").innerText = phase;
+document.getElementById("moon-description").innerText = getMoonDescription(phase);
+document.getElementById("moon-sign").innerText = `Луна в знаке: ${getMoonSign(new Date().getDate())}`;
 document.getElementById("phase-date").innerText = new Date().toLocaleDateString("ru-RU");
 setMoonStyle(phase);
