@@ -28,7 +28,7 @@ fetch('data.json')
 
 
 
-// ====== Фаза Луны ======
+// Фаза Луны
 function getMoonPhase() {
   const now = new Date();
   const year = now.getFullYear();
@@ -46,7 +46,7 @@ function getMoonPhase() {
   return "Убывающая Луна";
 }
 
-// ====== Знак Луны ======
+// Знак Луны
 function getMoonSign(day) {
   if (day <= 2) return "Овен";
   if (day <= 5) return "Телец";
@@ -62,10 +62,9 @@ function getMoonSign(day) {
   return "Рыбы";
 }
 
-// ====== Маска для фазы Луны ======
+// Маска фазы Луны
 function setMoonPhaseMask(phase) {
-  const moon = document.querySelector('.moon');
-
+  const moon = document.getElementById('moon-img');
   let shift;
   switch(phase) {
     case "Новолуние": shift = "100%"; break;
@@ -74,11 +73,10 @@ function setMoonPhaseMask(phase) {
     case "Полнолуние": shift = "-50%"; break;
     case "Убывающая Луна": shift = "-25%"; break;
   }
-
-  moon.style.setProperty('--mask-side', shift);
+  moon.style.setProperty('--mask-shift', shift);
 }
 
-// ====== Инициализация ======
+// Инициализация
 const phase = getMoonPhase();
 const today = new Date().getDate();
 
@@ -87,4 +85,3 @@ document.getElementById("moon-sign").innerText = `Луна в знаке: ${getM
 document.getElementById("phase-date").innerText = new Date().toLocaleDateString("ru-RU");
 
 setMoonPhaseMask(phase);
-
