@@ -25,6 +25,38 @@ fetch('data.json')
   })
   .catch(err => console.error('Ошибка загрузки данных:', err));
 
+// ====== Загрузка данных из data.json ======
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    // Услуги
+    const servicesList = document.getElementById('services-list');
+    if (servicesList) {
+      data.services.forEach(service => {
+        const li = document.createElement('li');
+        li.textContent = service;
+        servicesList.appendChild(li);
+      });
+    }
+
+    // Блог
+    const blogList = document.getElementById('blog-list');
+    if (blogList) {
+      data.blog.forEach(post => {
+        const article = document.createElement('article');
+        const title = document.createElement('h3');
+        title.textContent = post.title;
+        const content = document.createElement('p');
+        content.textContent = post.content;
+        article.appendChild(title);
+        article.appendChild(content);
+        blogList.appendChild(article);
+      });
+    }
+  })
+  .catch(err => console.error('Ошибка загрузки данных:', err));
+
+
 // ====== Фаза Луны ======
 function getMoonPhase() {
   const now = new Date();
@@ -59,10 +91,14 @@ function getMoonSign(day) {
   return "Рыбы";
 }
 
-// ====== Вставка данных в футер ======
+// ====== Инициализация ======
 const phase = getMoonPhase();
 const today = new Date().getDate();
 
-document.getElementById("phase-name").innerText = `Фаза Луны: ${phase}`;
-document.getElementById("moon-sign").innerText = `Луна в знаке: ${getMoonSign(today)}`;
-document.getElementById("phase-date").innerText = `Сегодня: ${new Date().toLocaleDateString("ru-RU")}`;
+const phaseEl = document.getElementById("phase-name");
+const signEl = document.getElementById("moon-sign");
+const dateEl = document.getElementById("phase-date");
+
+if (phaseEl) phaseEl.textContent = phase;
+if (signEl) signEl.textContent = `Луна в знаке: ${getMoonSign(today)}`;
+if (dateEl) dateEl.textContent = new Date().toLocaleDateString("ru-RU");
