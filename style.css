@@ -55,17 +55,15 @@ footer {
 .moon-container {
   display: flex;
   justify-content: center;
-  margin: 20px auto;
-  padding: 10px 20px;
-  max-width: 300px;
-  border: 2px solid #c8a45d; /* золотая рамка */
-  border-radius: 12px;
-  background-color: #111; /* контрастный фон */
-  color: #f5f5f5;
+  margin: 20px 0;
+  padding: 10px 0;
+  border-bottom: 2px solid #c8a45d; /* золотая линия */
+}
+
+.moon-info {
   font-size: 16px;
   font-weight: bold;
-  box-shadow: 0 0 15px rgba(200, 164, 93, 0.5);
-  text-align: center;
+  color: #f5f5f5;
 }
 
 .moon-info span {
