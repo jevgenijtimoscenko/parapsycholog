@@ -1,59 +1,6 @@
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #0e0e0e; /* глубокий чёрный фон */
-  color: #f5f5f5; /* светлый текст */
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-/* ====== HEADER ====== */
-header {
-  background-color: #111;
-  padding: 2rem 1rem;
-  border-bottom: 1px solid #333;
-}
-
-h1 {
-  color: #c8a45d; /* золотистый акцент */
-  font-size: 2.5rem;
-  margin-bottom: 0.2rem;
-}
-
-nav a {
-  color: #c8a45d;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* ====== MAIN ====== */
-main {
-  padding: 2rem;
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
-/* ====== FOOTER ====== */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: linear-gradient(to top, #050505, #111);
-  color: #dcdcdc;
-  font-family: 'Georgia', serif;
-  border-top: 1px solid #444;
-  font-size: 0.9rem;
-}
-
 .moon-container {
   display: flex;
-  justify-content: center; /* центрируем луну */
+  justify-content: center;
   margin: 15px 0;
   position: relative;
 }
@@ -75,37 +22,7 @@ footer {
   transform: scale(1.03);
 }
 
-/* Маска для фазы луны */
-.moon::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;.moon-container {
-  display: flex;
-  justify-content: center;
-  margin: 15px 0;
-  position: relative;
-}
-
-.moon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: #e8e8e8; /* основной цвет Луны */
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 25px 10px rgba(220,220,220,0.4),
-              0 0 60px 20px rgba(200,200,200,0.2);
-  transition: transform 0.6s ease-in-out;
-  animation: moon-breathe 3s ease-in-out infinite;
-}
-
-.moon:hover {
-  transform: scale(1.03);
-}
-
+/* Маска фазы Луны */
 .moon::after {
   content: '';
   position: absolute;
@@ -139,16 +56,9 @@ footer {
   color: #dcdcdc;
 }
 
-.moon-sign {
-  font-size: 14px;
-  color: #cfcfcf;
-  margin-top: 5px;
-}
-
 #phase-date {
   font-size: 12px;
   color: #aaaaaa;
   margin-top: 4px;
   display: block;
 }
-
