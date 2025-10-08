@@ -80,18 +80,18 @@ footer {
 .moon-info {
   font-size: 16px;
   margin-top: 10px;
-  color: #d0d0ff;
+  color: #dcdcdc; /* мягкий серебристый цвет */
 }
 
 .moon-sign {
   font-size: 14px;
-  color: #b8b8ff;
+  color: #cfcfcf; /* серебристый */
   margin-top: 5px;
 }
 
 #phase-date {
   font-size: 12px;
-  color: #999;
+  color: #aaaaaa; /* серебристый, чуть темнее для контраста */
   margin-top: 4px;
   display: block;
 }
