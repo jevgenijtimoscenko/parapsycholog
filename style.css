@@ -1,68 +1,13 @@
-
 body {
-<<<<<<< HEAD
-    font-family: 'Open Sans', sans-serif;
-    background-color: #0e0e0e;
-    color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  
-  header {
-    background-color: #111;
-    padding: 2rem 1rem;
-    border-bottom: 1px solid #333;
-  }
-  
-  h1 {
-    color: #c8a45d;
-    font-size: 2.5rem;
-    margin-bottom: 0.2rem;
-  }
-  
-  nav a {
-    color: #c8a45d;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
-  main {
-    padding: 2rem;
-  }
-  
-  section {
-    margin-bottom: 2rem;
-  }
-  
-  footer {
-    background-color: #111;
-    padding: 1rem;
-    border-top: 1px solid #333;
-    font-size: 0.9rem;
-  }
-  
-  footer {
-  text-align: center;
-  padding: 30px;
-  background: linear-gradient(to top, #1b1b2f, #2c2c4a);
-  color: #f0e6d2;
-  font-family: 'Georgia', serif;
-  border-top: 2px solid #6e5c9a;
-=======
   font-family: 'Open Sans', sans-serif;
-  background-color: #0e0e0e;
-  color: #f5f5f5;
+  background-color: #0e0e0e; /* глубокий чёрный фон */
+  color: #f5f5f5; /* светлый текст */
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
+/* ====== HEADER ====== */
 header {
   background-color: #111;
   padding: 2rem 1rem;
@@ -70,7 +15,7 @@ header {
 }
 
 h1 {
-  color: #c8a45d;
+  color: #c8a45d; /* золотистый акцент */
   font-size: 2.5rem;
   margin-bottom: 0.2rem;
 }
@@ -86,6 +31,7 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* ====== MAIN ====== */
 main {
   padding: 2rem;
 }
@@ -94,23 +40,18 @@ section {
   margin-bottom: 2rem;
 }
 
-footer {
-  background-color: #111;
-  padding: 1rem;
-  border-top: 1px solid #333;
-  font-size: 0.9rem;
-}
-
+/* ====== FOOTER ====== */
 footer {
   text-align: center;
   padding: 30px;
-  background: #000; /* твой основной фон */
-  color: #e5e5e5;
+  background: linear-gradient(to top, #050505, #111);
+  color: #dcdcdc;
   font-family: 'Georgia', serif;
   border-top: 1px solid #444;
->>>>>>> 3f0e298 (Updated moon footer and CSS theme)
+  font-size: 0.9rem;
 }
 
+/* ====== MOON ====== */
 .moon-container {
   position: relative;
   display: inline-block;
@@ -121,29 +62,17 @@ footer {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-<<<<<<< HEAD
-  background: #f0e6d2;
-  box-shadow: 0 0 20px 5px rgba(240,230,210,0.5);
-  transition: background 0.5s, box-shadow 0.5s;
-  margin-bottom: 10px;
-}
-
-.moon-info {
-  font-size: 16px;
-}
-  
-=======
-  background: radial-gradient(circle at 30% 30%, #f5f5f5, #bfbfbf, #8c8c8c);
+  background: radial-gradient(circle at 30% 30%, #e8e8e8, #b0b0b0, #707070);
   box-shadow:
-    0 0 25px 10px rgba(220, 220, 255, 0.2),
-    0 0 80px 30px rgba(200, 200, 255, 0.1);
+    0 0 25px 10px rgba(180, 180, 255, 0.3),
+    0 0 60px 20px rgba(150, 150, 255, 0.1);
   transition: all 0.6s ease-in-out;
   margin-bottom: 10px;
 }
 
 .moon:hover {
   box-shadow:
-    0 0 30px 15px rgba(235, 235, 255, 0.4),
+    0 0 35px 15px rgba(235, 235, 255, 0.5),
     0 0 100px 40px rgba(190, 190, 255, 0.2);
   transform: scale(1.03);
 }
@@ -151,18 +80,18 @@ footer {
 .moon-info {
   font-size: 16px;
   margin-top: 10px;
+  color: #d0d0ff;
 }
 
 .moon-sign {
   font-size: 14px;
-  color: #ccc;
+  color: #b8b8ff;
   margin-top: 5px;
 }
 
 #phase-date {
   font-size: 12px;
-  color: #888;
+  color: #999;
   margin-top: 4px;
   display: block;
 }
->>>>>>> 3f0e298 (Updated moon footer and CSS theme)
