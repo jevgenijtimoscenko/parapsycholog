@@ -30,44 +30,23 @@ fetch('data.json')
   .catch(err => console.error('Ошибка загрузки данных:', err));
 
 
-// ====== Фаза Луны (реальная, через лунный цикл) ======
+// ====== Фаза Луны ======
 function getMoonPhase(date = new Date()) {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
 
-  // приближённый расчёт по Дж. Конвэйну
-  let c = 0, e = 0, jd = 0, b = 0;
-  if (month < 3) {
-    c = year - 1;
-    e = month + 12;
-  } else {
-    c = year;
-    e = month;
-  }
-  jd = 365.25 * c + 30.6 * (e + 1) + day - 694039.09;
-  jd /= 29.5305882; // средний лунный цикл
-  b = jd - Math.floor(jd);
-  if (b < 0) b += 1;
+  let r = (year % 100) % 19;
+  r = (r * 11) % 30 + month + day;
+  r = r % 30;
 
-  if (b < 0.03) return "Новолуние";
-  if (b < 0.22) return "Растущая Луна";
-  if (b < 0.28) return "Первая четверть";
-  if (b < 0.47) return "Растущая Луна";
-  if (b < 0.53) return "Полнолуние";
-  if (b < 0.72) return "Убывающая Луна";
-  if (b < 0.78) return "Последняя четверть";
+  if (r < 1) return "Новолуние";
+  if (r < 7) return "Растущая Луна";
+  if (r < 15) return "Первая четверть";
+  if (r < 22) return "Полнолуние";
   return "Убывающая Луна";
 }
 
-// ====== Инициализация ======
-(function initMoon() {
-  const today = new Date();
-  const phase = getMoonPhase(today);
+// Инициализация
+document.getElementById("phase-name").textContent = getMoonPhase();
 
-  const phaseEl = document.getElementById("phase-name");
-  const dateEl = document.getElementById("phase-date");
-
-  if (phaseEl) phaseEl.textContent = `Фаза Луны: ${phase}`;
-  if (dateEl) dateEl.textContent = today.toLocaleDateString("ru-RU");
-})();
