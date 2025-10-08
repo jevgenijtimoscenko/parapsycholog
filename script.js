@@ -1,3 +1,4 @@
+
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
@@ -94,4 +95,4 @@ fetch('data.json')
   document.getElementById("phase-date").innerText = new Date().toLocaleDateString("ru-RU");
   setMoonStyle(phase);
 
-});
+
