@@ -32,3 +32,7 @@
   </url>
 
 </urlset>
+User-agent: *
+Allow: /
+Sitemap: https://parapsycholog.uk/sitemap.xml
+
