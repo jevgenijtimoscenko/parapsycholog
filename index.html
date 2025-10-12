@@ -55,10 +55,78 @@
   </main>
 
 <footer>
-  <hr>
-  <div class="moon-info">
-    <span id="phase-name"></span>
-  </div>
+  <div id="moon-widget">
+  <h3>Фаза Луны сегодня</h3>
+  <p id="moon-phase">Загрузка...</p>
+</div>
+
+<script>
+// Функция для вычисления фаз Луны с точностью
+function getMoonPhaseAccurate() {
+    const now = new Date();
+
+    // Преобразуем дату в юлианское число
+    const year = now.getUTCFullYear();
+    const month = now.getUTCMonth() + 1;
+    const day = now.getUTCDate() + now.getUTCHours()/24 + now.getUTCMinutes()/1440;
+
+    let yy = year;
+    let mm = month;
+    if (mm < 3) {
+        yy--;
+        mm += 12;
+    }
+    const k1 = Math.floor(365.25 * (yy + 4712));
+    const k2 = Math.floor(30.6 * (mm + 1));
+    const jd = k1 + k2 + day - 1524.5;
+
+    // Синодический месяц ~29.53058867 дней
+    const daysSinceNew = jd - 2451549.5; // JD для известного новолуния 2000-01-06
+    const newMoons = daysSinceNew / 29.53058867;
+    const phaseIndex = newMoons - Math.floor(newMoons);
+
+    // Преобразуем в фазы
+    const phases = [
+        "🌑 Новолуние",
+        "🌒 Растущая",
+        "🌓 Первая четверть",
+        "🌔 Растущая",
+        "🌕 Полнолуние",
+        "🌖 Убывающая",
+        "🌗 Последняя четверть",
+        "🌘 Убывающая"
+    ];
+
+    const index = Math.round(phaseIndex * 8) % 8;
+    return phases[index];
+}
+
+document.getElementById("moon-phase").textContent = getMoonPhaseAccurate();
+</script>
+
+<style>
+#moon-widget {
+  max-width: 300px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(170, 145, 2, 0.5);
+  color: #f5f5f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#moon-widget h3 {
+  color: #aa9102;
+  margin-bottom: 15px;
+}
+#moon-widget p {
+  font-size: 1.5em;
+  margin: 0;
+}
+</style>
+
+ 
   <p>© 2025 Parapsycholog. All rights reserved. <span class="psi-symbol">Ψ</span></p>
 </footer>
   
