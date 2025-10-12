@@ -313,3 +313,34 @@ body {
   transform: scale(1.1);
 }
 
+.blog-article {
+  background-color: #111;
+  color: #f0e6d2;
+  padding: 40px 30px;
+  line-height: 1.8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 40px auto;
+  box-shadow: 0 0 10px rgba(240, 230, 210, 0.2);
+}
+
+.blog-title {
+  color: #f0e6d2;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Анимация появления */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
