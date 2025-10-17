@@ -344,3 +344,17 @@ body {
   transform: translateY(0);
 }
 
+
+#blog-list, .blog-article {
+  max-height: none;    /* убираем ограничение */
+  overflow: visible;   /* показываем весь текст */
+}
+
+
+.blog-article p {
+  display: block;
+  overflow: visible;
+  text-overflow: unset;
+  -webkit-line-clamp: unset;
+}
+
