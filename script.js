@@ -36,7 +36,6 @@ const blogPosts = [
   }
 ];
 
-// ====== ОТОБРАЖЕНИЕ СТАТЕЙ ======
 function renderBlog() {
   const blogList = document.getElementById('blog-list');
   if (!blogList) return;
@@ -57,15 +56,8 @@ function renderBlog() {
     article.appendChild(content);
     blogList.appendChild(article);
   });
-}
 
-// ====== ЭФФЕКТ ПЛАВНОГО ПОЯВЛЕНИЯ ======
-document.addEventListener("DOMContentLoaded", () => {
-  const path = window.location.pathname;
-  if (path.includes("blog.html")) {
-    renderBlog();
-  }
-
+  // Наблюдатель для плавного появления — после добавления статей
   const elements = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -73,4 +65,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   elements.forEach(el => observer.observe(el));
-});
+}
