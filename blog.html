@@ -6,6 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Блог - Парапсихология</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Плавное появление */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Стиль заголовков и статьи */
+    .blog-title {
+      margin-top: 20px;
+      font-size: 1.8em;
+    }
+
+    .blog-article p {
+      margin-bottom: 15px;
+      overflow: visible;
+    }
+
+    #blog-list, .blog-article {
+      max-height: none;
+      overflow: visible;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -61,6 +90,20 @@
     <button onclick="document.getElementById('bgMusic').pause()">Выключить музыку</button>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Плавное появление статей
+    document.addEventListener("DOMContentLoaded", () => {
+      const posts = document.querySelectorAll(".blog-post");
+      posts.forEach(post => post.classList.add("fade-in"));
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      }, { threshold: 0.1 });
+
+      posts.forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>
