@@ -28,27 +28,27 @@ const blogPosts = [
 Внутри энергетического тела информационные импульсы передаются через систему нади или меридианов (обе системы — индийские нади и китайские меридианы — идентичны друг другу)
 Так как космоэнергетическая распределительная система энергетического тела посредством биоэнергетического взаимодействия связана с нервными сплетениями материального тела, то в любое время материальному телу может быть передана космическая энергия как "энергия жизни". Таким образом возможно прямое воздействие на материальный организм через космоэнергетические импульсы.
 Энергетическое тело бессмертно.
-Оно было до рождения и после смерти человека отделяется от его материального тела, чтобы существовать дальше как составная часть космического сознания (поэтому возможны контакты с умершими, например, посредством "пишущего стола").
-</p>
-        
+Оно было до рождения и после смерти человека отделяется от его материального тела, чтобы существовать дальше как составная часть космического сознания (поэтому возможны контакты с умершими, например, посредством "пишущего стола").</p>
       </section>
     `
   }
 ];
 
+// ====== ОТОБРАЖЕНИЕ СТАТЕЙ ======
 function renderBlog() {
   const blogList = document.getElementById('blog-list');
   if (!blogList) return;
 
-  blogList.innerHTML = ""; // очистка
+  blogList.innerHTML = ""; // очистка старого контента
+
   blogPosts.forEach(post => {
     const article = document.createElement('article');
     article.classList.add('fade-in');
-    
+
     const title = document.createElement('h2');
     title.textContent = post.title;
     title.classList.add('blog-title');
-    
+
     const content = document.createElement('div');
     content.innerHTML = post.content;
 
@@ -57,12 +57,20 @@ function renderBlog() {
     blogList.appendChild(article);
   });
 
-  // Наблюдатель для плавного появления — после добавления статей
+  // IntersectionObserver для плавного появления
   const elements = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  });
+  }, { threshold: 0.1 });
+
   elements.forEach(el => observer.observe(el));
 }
+
+// ====== ИНИЦИАЛИЗАЦИЯ ======
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.location.pathname.includes("blog.html")) {
+    renderBlog();
+  }
+});
