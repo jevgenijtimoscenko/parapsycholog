@@ -438,4 +438,14 @@ body {
   text-decoration: underline;
 }
 
+a.highlight {
+  color: #f5d991;
+  text-decoration: none;
+  border-bottom: 1px dotted #f5d991;
+}
+
+a.highlight:hover {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
 
