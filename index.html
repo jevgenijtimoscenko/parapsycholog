@@ -65,35 +65,8 @@
   <p>
     Современная парапсихология использует сочетание эмпирических методов, лабораторных экспериментов и наблюдательных практик. Целью является выявление закономерностей, проверка гипотез и интеграция полученных знаний с психологией, нейронаукой и философией сознания. Несмотря на критику и споры о научной строгости, парапсихология остаётся уникальной областью исследования сознания и человеческих возможностей.
   </p>
-</section>
-    <section class="blog-preview">
-  <h2 style="text-align:center; margin-bottom:30px;">Блог</h2>
 
-  <div id="blog-list">
-
-    <div class="blog-post fade-in">
-      <h2 class="blog-title">Сознание и энергия</h2>
-      <section class="blog-article">
-        <p>Сознание человека — это не просто результат биохимических процессов, но сложная сеть энергии и вибраций...</p>
-      </section>
-    </div>
-
-    <div class="blog-post fade-in">
-      <h2 class="blog-title">Энергетическое тело</h2>
-      <section class="blog-article">
-        <p>Энергетическое тело человека возникает из концентрированной космической энергии...</p>
-      </section>
-    </div>
-
-    <div class="blog-post fade-in">
-      <h2 class="blog-title">Поле ПСИ</h2>
-      <section class="blog-article">
-        <p>В большинстве культур древности мистики сообщали своим народам об ореоле...</p>
-      </section>
-    </div>
-
-  </div>
-</section>
+   
 
    
   </main>
@@ -182,20 +155,6 @@ document.getElementById("moon-phase").textContent = getMoonPhaseAccurate();
   
 
   <script src="script.js"></script>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const posts = document.querySelectorAll(".blog-post");
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.1 });
-
-  posts.forEach(post => observer.observe(post));
-});
-</script>
 </body>
 </html>
