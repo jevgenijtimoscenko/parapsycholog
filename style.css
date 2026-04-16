@@ -452,3 +452,8 @@ a.highlight:hover {
   color: #aa9102;
   text-shadow: 0 0 8px rgba(170,145,2,0.5);
 }
+ul li a,
+ul li a:visited {
+  color: white;
+  text-decoration: none;
+}
