@@ -448,4 +448,7 @@ a.highlight:hover {
   color: #ffffff;
   border-bottom: 1px solid #ffffff;
 }
-
+.paypal-link:hover {
+  color: #aa9102;
+  text-shadow: 0 0 8px rgba(170,145,2,0.5);
+}
