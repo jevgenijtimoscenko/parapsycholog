@@ -1,14 +1,13 @@
-/* ===== ОСНОВА ===== */
 body {
   font-family: 'Open Sans', sans-serif;
-  background: radial-gradient(circle at top, #2b2b2b, #000);
-  color: #e8e2cf;
+  background-color: #0e0e0e;
+  color: #f5f5f5;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header {
   background-color: #111;
   padding: 2rem 1rem;
@@ -32,7 +31,7 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* ===== MAIN ===== */
+/* MAIN */
 main {
   padding: 2rem;
 }
@@ -41,50 +40,297 @@ section {
   margin-bottom: 2rem;
 }
 
-/* ===== BLOG СТАТЬИ ===== */
+
+
+/* ====== Фаза Луны ====== */
+.moon-container {
+  margin: 20px auto;
+}
+
+.moon-info {
+  font-size: 16px;
+  color: #c8a45d;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 10px 30px 10px;
+  background: linear-gradient(to top, #050505, #111);
+  color: #dcdcdc;
+  font-family: 'Georgia', serif;
+  border-top: 1px solid #444;
+  font-size: 0.9rem;
+}
+
+footer hr {
+  border: none;
+  height: 1px;
+  background-color: #444;
+  margin-bottom: 10px;
+}
+
+.moon-info {
+  font-size: 16px;
+  color: #dcdcdc;
+  margin-bottom: 8px;
+}
+
+
+/* ====== CONTACT PAGE ====== */
+.contact-section {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-top: 1px solid #444;
+}
+
+.contact-section h2 {
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.contact-section p {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-card {
+  background-color: #161616;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 260px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.contact-card:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.contact-card i {
+  font-size: 2rem;
+  color: #9cd3ff;
+  margin-bottom: 0.5rem;
+}
+
+.contact-card h3 {
+  color: #f0f0f0;
+  margin-bottom: 0.3rem;
+}
+
+.contact-card a {
+  color: #d0d0d0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-card a:hover {
+  color: #9cd3ff;
+  text-decoration: underline;
+}
+
+
+/* ====== SERVICES PAGE ====== */
+.services-section {
+  padding: 2rem;
+  border-top: 1px solid #444;
+}
+
+.services-section h2 {
+  color: #e0e0e0;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.service-card {
+  background-color: #161616;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.service-card:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  color: #f1d27a;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.service-card .price {
+  color: #d4af37;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.payment-info {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #bbbbbb;
+  line-height: 1.6;
+  text-align: center;
+  border-top: 1px solid #333;
+  padding-top: 1rem;
+}
+
+
+.services-intro {
+  border-top: 2px solid #c8a45d; /* золотистая линия сверху */
+  margin-top: 40px;
+  padding-top: 20px;
+  text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #f5f5f5;
+}
+
+.services-intro h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #c8a45d;
+}
+
+.services-intro ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.services-intro li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+
+.services-intro {
+  max-width: 800px;       /* ограничиваем ширину для удобного чтения */
+  margin: 40px auto;      /* центрируем блок по горизонтали */
+  padding: 20px 30px;     /* внутренние отступы */
+  border-top: 2px solid #c8a45d; /* золотая линия сверху */
+  line-height: 1.6;       /* увеличиваем межстрочный интервал */
+  color: #f5f5f5;         /* текст светлый */
+  text-align: left;       /* текст выравниваем по левому краю */
+  font-size: 1rem;        /* читаемый размер текста */
+}
+.services-intro p {
+  margin-bottom: 1em;     /* расстояние между абзацами */
+}
+
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 1rem;
+}
+
+.gallery-item {
+  width: 200px;
+  text-align: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #f0e6d2;
+}
+
+
+
+.psi-symbol {
+  font-size: 3rem;
+  color: #aa9102;
+  text-shadow: 0 0 15px rgba(170,145,2,0.7);
+}
+
+body {
+  background: radial-gradient(circle at top, #2b2b2b, #000);
+  color: #fcfdff;
+}
+
+
+.psi-symbol {
+  font-size: 2.5rem; /* размер знака */
+  color: #aa9102; /* золотистый акцент */
+  text-shadow: 
+    0 0 5px rgba(170,145,2,0.7),
+    0 0 10px rgba(170,145,2,0.5),
+    0 0 20px rgba(170,145,2,0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Небольшое "дыхание" свечения при наведении */
+.psi-symbol:hover {
+  text-shadow: 
+    0 0 10px rgba(170,145,2,0.9),
+    0 0 20px rgba(170,145,2,0.7),
+    0 0 30px rgba(170,145,2,0.5);
+  transform: scale(1.1);
+}
+
 .blog-post {
   max-width: 900px;
   margin: 50px auto;
-  padding: 40px 50px;
-  background: linear-gradient(
-    145deg,
-    rgba(255,255,255,0.04),
-    rgba(0,0,0,0.5)
-  );
+  padding: 30px;
+  background: rgba(255,255,255,0.03);
   border-radius: 15px;
-  box-shadow: 0 0 25px rgba(170,145,2,0.2);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(170,145,2,0.15);
 }
 
-.blog-post:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 35px rgba(200,164,93,0.35);
-}
-
-.blog-title {
-  color: #f0e6d2;
-  font-size: 2em;
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-/* ===== ТЕКСТ ===== */
 .blog-article {
-  color: #ddd6c3;
-  line-height: 1.9;
-  font-size: 17px;
+  color: #e6dcc6;
+  line-height: 1.85;
+  font-size: 16px;
   text-align: left;
 }
 
 .blog-article p {
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-
-/* ✨ эффект "живого текста" */
-.blog-article p:hover {
-  color: #ffffff;
-  transform: translateX(3px);
+  margin-bottom: 18px;
 }
 
 /* Заголовки внутри */
@@ -101,17 +347,14 @@ section {
   margin: 30px 0;
 }
 
-/* ===== ИЗОБРАЖЕНИЯ ===== */
-.blog-image {
-  width: 100%;
-  max-width: 700px;
-  display: block;
-  margin: 25px auto;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(170,145,2,0.4);
+.blog-title {
+  color: #f0e6d2;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* ===== АНИМАЦИЯ ===== */
+/* Анимация появления */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -123,37 +366,111 @@ section {
   transform: translateY(0);
 }
 
-/* ===== FOOTER ===== */
-footer {
+
+#blog-list, .blog-article {
+  max-height: none;    /* убираем ограничение */
+  overflow: visible;   /* показываем весь текст */
+}
+
+
+.blog-article p {
+  display: block;
+  overflow: visible;
+  text-overflow: unset;
+  -webkit-line-clamp: unset;
+}
+
+
+/* === Расписание (серебряный стиль) === */
+.schedule {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background: radial-gradient(circle at top left, rgba(80, 80, 90, 0.3), rgba(20, 20, 25, 0.8));
+  border: 1px solid rgba(200, 200, 210, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 25px rgba(180, 180, 180, 0.15);
+  color: #e0e0e0;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
+}
+
+.schedule h2 {
   text-align: center;
-  padding: 20px 10px 30px 10px;
-  background: linear-gradient(to top, #050505, #111);
+  font-size: 1.9em;
+  margin-bottom: 25px;
   color: #dcdcdc;
-  font-family: 'Georgia', serif;
-  border-top: 1px solid #444;
-  font-size: 0.9rem;
+  text-shadow: 0 0 8px rgba(200, 200, 200, 0.6);
+  letter-spacing: 1px;
 }
 
-/* ===== ПСИ СИМВОЛ ===== */
-.psi-symbol {
-  font-size: 2.5rem;
-  color: #aa9102;
-  text-shadow: 
-    0 0 5px rgba(170,145,2,0.7),
-    0 0 10px rgba(170,145,2,0.5),
-    0 0 20px rgba(170,145,2,0.3);
-  transition: all 0.3s ease-in-out;
+.schedule-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
 }
 
-.psi-symbol:hover {
-  text-shadow: 
-    0 0 10px rgba(170,145,2,0.9),
-    0 0 20px rgba(170,145,2,0.7),
-    0 0 30px rgba(170,145,2,0.5);
-  transform: scale(1.1);
+.schedule-row {
+  display: contents;
 }
 
-/* ===== КНОПКА ВВЕРХ ===== */
+.schedule-row div {
+  padding: 14px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #e6e6e6;
+}
+
+.schedule-row div:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.schedule-row.header div {
+  background: linear-gradient(90deg, #777, #999, #aaa);
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.schedule-row:last-child div {
+  border-bottom: none;
+}
+
+.note {
+  text-align: center;
+  font-style: italic;
+  margin-top: 25px;
+  color: #cfcfcf;
+}
+
+.note a {
+  color: #c0c0c0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.note a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255,255,255,0.4);
+  text-decoration: underline;
+}
+
+a.highlight {
+  color: #f5d991;
+  text-decoration: none;
+  border-bottom: 1px dotted #f5d991;
+}
+
+a.highlight:hover {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
 #scrollTopBtn {
   position: fixed;
   bottom: 30px;
@@ -177,7 +494,7 @@ footer {
   overflow: hidden;
 }
 
-/* энергия вверх */
+/* Энергия внутри кнопки */
 #scrollTopBtn::before {
   content: "";
   position: absolute;
@@ -192,14 +509,21 @@ footer {
   animation: energyFlow 2s linear infinite;
 }
 
+/* Анимация движения вверх */
 @keyframes energyFlow {
-  0% { transform: translateY(100%); }
-  100% { transform: translateY(-100%); }
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
 
+/* Ховер эффект */
 #scrollTopBtn:hover {
   transform: scale(1.15);
   box-shadow: 
     0 0 20px rgba(255,215,0,0.9),
     0 0 50px rgba(255,215,0,0.6);
+}
 }
