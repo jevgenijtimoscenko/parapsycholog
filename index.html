@@ -37,13 +37,8 @@
   </header>
 
   <main>
-    <div class="music-controls">
-  <button class="music-btn" onclick="document.getElementById('bgMusic').play()">
-    🔊 Включить
-  </button>
-  <button class="music-btn" onclick="document.getElementById('bgMusic').pause()">
-    🔇 Выключить
-  </button>
+
+ <audio id="bgMusic" loop> <source src="music.mp3" type="audio/mpeg"> </audio> <button onclick="document.getElementById('bgMusic').play()">Включить музыку</button> <button onclick="document.getElementById('bgMusic').pause()">Выключить музыку</button>
 </div>
     <section class="intro">
       <h2>Добро пожаловать!</h2>
