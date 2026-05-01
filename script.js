@@ -28,3 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function acceptCookies() {
+  localStorage.setItem("cookieConsent", "accepted");
+  document.getElementById("cookie-banner").style.display = "none";
+}
+
+function rejectCookies() {
+  localStorage.setItem("cookieConsent", "rejected");
+  document.getElementById("cookie-banner").style.display = "none";
+}
+
+window.onload = function() {
+  const consent = localStorage.getItem("cookieConsent");
+
+  if (consent) {
+    document.getElementById("cookie-banner").style.display = "none";
+  }
+};
