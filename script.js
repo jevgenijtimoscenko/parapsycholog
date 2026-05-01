@@ -2,77 +2,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== BLOG ANIMATION =====
   const posts = document.querySelectorAll(".blog-post");
-
   posts.forEach(post => post.classList.add("fade-in"));
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
+      if (entry.isIntersecting) entry.target.classList.add("visible");
     });
   }, { threshold: 0.1 });
 
   posts.forEach(el => observer.observe(el));
 
-
   // ===== SCROLL BUTTON =====
   const btn = document.getElementById("scrollTopBtn");
 
-  if (btn) {
-    window.addEventListener("scroll", () => {
-      btn.style.display = window.scrollY > 300 ? "block" : "none";
-    });
+  window.addEventListener("scroll", () => {
+    btn.style.display = window.scrollY > 50 ? "block" : "none";
+  });
 
-    btn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
-
-  // ===== COOKIE BANNER =====
+  // ===== COOKIE =====
   const banner = document.getElementById("cookie-banner");
-
   if (!banner) return;
 
   const consent = localStorage.getItem("cookieConsent");
 
-  // если уже нажимали
   if (consent) {
     banner.style.display = "none";
 
     if (consent === "accepted") {
       loadAnalytics();
     }
+
+    // 🔥 ВАЖНО — чтобы кнопка не пропадала
+    if (window.scrollY < 100) {
+      btn.style.display = "block";
+    }
   }
 
   const acceptBtn = banner.querySelector(".accept-btn");
   const rejectBtn = banner.querySelector(".reject-btn");
 
-  if (acceptBtn) {
-    acceptBtn.addEventListener("click", () => {
-      localStorage.setItem("cookieConsent", "accepted");
-      banner.style.display = "none";
-      loadAnalytics();
-    });
-  }
+  acceptBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "accepted");
+    banner.style.display = "none";
+    loadAnalytics();
 
-  if (rejectBtn) {
-    rejectBtn.addEventListener("click", () => {
-      localStorage.setItem("cookieConsent", "rejected");
-      banner.style.display = "none";
-    });
-  }
+    // 🔥 ФИКС — кнопка остаётся
+    setTimeout(() => {
+      btn.style.display = "block";
+    }, 100);
+  });
+
+  rejectBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "rejected");
+    banner.style.display = "none";
+
+    // 🔥 ФИКС — кнопка остаётся
+    setTimeout(() => {
+      btn.style.display = "block";
+    }, 100);
+  });
 
 });
 
 
-// ===== GOOGLE ANALYTICS (загрузка только 1 раз) =====
+// ===== ANALYTICS =====
 let analyticsLoaded = false;
 
 function loadAnalytics() {
   if (analyticsLoaded) return;
-
   analyticsLoaded = true;
 
   const script = document.createElement("script");
@@ -81,7 +82,6 @@ function loadAnalytics() {
   document.head.appendChild(script);
 
   window.dataLayer = window.dataLayer || [];
-
   function gtag(){dataLayer.push(arguments);}
   window.gtag = gtag;
 
