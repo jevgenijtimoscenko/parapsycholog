@@ -471,57 +471,12 @@ a.highlight:hover {
   border-bottom: 1px solid #ffffff;
 }
 
-#scrollTopBtn {
-  position: fixed;
-  bottom: 100px;
-  right: 30px;
+
   
-}
 
-  font-size: 24px;
-  color: #f0e6d2;
 
-  background: radial-gradient(circle, #111 40%, #000 100%);
-  box-shadow: 
-    0 0 15px rgba(170,145,2,0.6),
-    0 0 40px rgba(170,145,2,0.4);
 
-  z-index: 1000;
-  overflow: hidden;
-}
 
-/* Энергия внутри кнопки */
-#scrollTopBtn::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 200%;
-  background: linear-gradient(
-    to top,
-    transparent,
-    rgba(255, 215, 0, 0.3),
-    transparent
-  );
-  animation: energyFlow 2s linear infinite;
-}
-
-/* Анимация движения вверх */
-@keyframes energyFlow {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
-}
-
-/* Ховер эффект */
-#scrollTopBtn:hover {
-  transform: scale(1.15);
-  box-shadow: 
-    0 0 20px rgba(255,215,0,0.9),
-    0 0 50px rgba(255,215,0,0.6);
-}
 
 
 /* ===== COOKIE BANNER (УЛУЧШЕННЫЙ) ===== */
