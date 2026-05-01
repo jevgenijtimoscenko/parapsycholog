@@ -473,14 +473,10 @@ a.highlight:hover {
 
 #scrollTopBtn {
   position: fixed;
-  bottom: 30px;
+  bottom: 100px;
   right: 30px;
-  display: none;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
+  z-index: 10000;
+}
 
   font-size: 24px;
   color: #f0e6d2;
