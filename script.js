@@ -12,16 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   posts.forEach(el => observer.observe(el));
 
-  // ===== SCROLL BUTTON =====
-  const btn = document.getElementById("scrollTopBtn");
-
-  window.addEventListener("scroll", () => {
-    btn.style.display = window.scrollY > 50 ? "block" : "none";
-  });
-
-  btn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  
 
   // ===== COOKIE =====
   const banner = document.getElementById("cookie-banner");
