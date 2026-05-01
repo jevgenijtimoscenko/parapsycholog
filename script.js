@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   posts.forEach(el => observer.observe(el));
 
-  
-
   // ===== COOKIE =====
   const banner = document.getElementById("cookie-banner");
   if (!banner) return;
@@ -26,11 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (consent === "accepted") {
       loadAnalytics();
     }
-
-    // 🔥 ВАЖНО — чтобы кнопка не пропадала
-    if (window.scrollY < 100) {
-      btn.style.display = "block";
-    }
   }
 
   const acceptBtn = banner.querySelector(".accept-btn");
@@ -40,21 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("cookieConsent", "accepted");
     banner.style.display = "none";
     loadAnalytics();
-
-    // 🔥 ФИКС — кнопка остаётся
-    setTimeout(() => {
-      btn.style.display = "block";
-    }, 100);
   });
 
   rejectBtn.addEventListener("click", () => {
     localStorage.setItem("cookieConsent", "rejected");
     banner.style.display = "none";
-
-    // 🔥 ФИКС — кнопка остаётся
-    setTimeout(() => {
-      btn.style.display = "block";
-    }, 100);
   });
 
 });
