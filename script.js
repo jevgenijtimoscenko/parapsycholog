@@ -65,3 +65,21 @@ function loadAnalytics() {
   gtag('js', new Date());
   gtag('config', 'G-VZY7NYD5E7');
 }
+let analyticsLoaded = false;
+
+function loadAnalytics() {
+  if (analyticsLoaded) return;
+  analyticsLoaded = true;
+
+  const script = document.createElement("script");
+  script.src = "https://www.googletagmanager.com/gtag/js?id=G-VZY7NYD5E7";
+  script.async = true;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  gtag('js', new Date());
+  gtag('config', 'G-VZY7NYD5E7');
+}
