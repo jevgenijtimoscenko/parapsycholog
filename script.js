@@ -29,20 +29,31 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function acceptCookies() {
-  localStorage.setItem("cookieConsent", "accepted");
-  document.getElementById("cookie-banner").style.display = "none";
-}
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
-function rejectCookies() {
-  localStorage.setItem("cookieConsent", "rejected");
-  document.getElementById("cookie-banner").style.display = "none";
-}
+  const banner = document.getElementById("cookie-banner");
 
-window.onload = function() {
+  if (!banner) return;
+
   const consent = localStorage.getItem("cookieConsent");
 
   if (consent) {
-    document.getElementById("cookie-banner").style.display = "none";
+    banner.style.display = "none";
   }
-};
+
+  const acceptBtn = banner.querySelector(".accept-btn");
+  const rejectBtn = banner.querySelector(".reject-btn");
+
+  acceptBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "accepted");
+    banner.style.display = "none";
+  });
+
+  rejectBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "rejected");
+    banner.style.display = "none";
+  });
+
+});
+</script>
