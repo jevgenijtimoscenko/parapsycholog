@@ -475,7 +475,7 @@ a.highlight:hover {
   position: fixed;
   bottom: 100px;
   right: 30px;
-  z-index: 10000;
+  
 }
 
   font-size: 24px;
