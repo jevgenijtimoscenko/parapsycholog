@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ===== BLOG ANIMATION =====
   const posts = document.querySelectorAll(".blog-post");
   posts.forEach(post => post.classList.add("fade-in"));
 
@@ -9,29 +11,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.1 });
 
   posts.forEach(el => observer.observe(el));
-});
-document.addEventListener("DOMContentLoaded", () => {
+
+  // ===== SCROLL BUTTON =====
   const btn = document.getElementById("scrollTopBtn");
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
+    btn.style.display = window.scrollY > 300 ? "block" : "none";
   });
 
   btn.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
-});
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
+  // ===== COOKIE =====
   const banner = document.getElementById("cookie-banner");
 
   if (!banner) return;
@@ -40,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (consent) {
     banner.style.display = "none";
+    if (consent === "accepted") loadAnalytics();
   }
 
   const acceptBtn = banner.querySelector(".accept-btn");
@@ -48,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   acceptBtn.addEventListener("click", () => {
     localStorage.setItem("cookieConsent", "accepted");
     banner.style.display = "none";
+    loadAnalytics();
   });
 
   rejectBtn.addEventListener("click", () => {
@@ -56,4 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
-</script>
+
+// ===== ANALYTICS =====
+function loadAnalytics() {
+  const script = document.createElement("script");
+  script.src = "https://www.googletagmanager.com/gtag/js?id=G-VZY7NYD5E7";
+  script.async = true;
+  document.head.appendChild(script);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+
+  gtag('js', new Date());
+  gtag('config', 'G-VZY7NYD5E7');
+}
