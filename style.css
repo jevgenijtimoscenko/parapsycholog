@@ -534,3 +534,42 @@ a.highlight:hover {
   color: #000;
 }
 
+.about-work {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+
+  text-align: left;
+}
+
+.about-work h3 {
+  text-align: center;
+  color: #c8a45d;
+  margin-bottom: 15px;
+}
+
+.about-work ul {
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.about-work li {
+  margin-bottom: 8px;
+}
+
+.highlight-text {
+  margin-top: 15px;
+  color: #f0e6d2;
+  font-weight: bold;
+  text-align: center;
+}
+
+.note {
+  margin-top: 10px;
+  font-style: italic;
+  color: #aaa;
+  text-align: center;
+}
