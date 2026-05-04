@@ -62,3 +62,29 @@ function loadAnalytics() {
   gtag('js', new Date());
   gtag('config', 'G-VZY7NYD5E7');
 }
+
+<script>
+function updateClocks() {
+  const options = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  };
+
+  document.getElementById('london').textContent =
+    new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' });
+
+  document.getElementById('riga').textContent =
+    new Date().toLocaleTimeString('lv-LV', { ...options, timeZone: 'Europe/Riga' });
+
+  document.getElementById('moscow').textContent =
+    new Date().toLocaleTimeString('ru-RU', { ...options, timeZone: 'Europe/Moscow' });
+
+  document.getElementById('newyork').textContent =
+    new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/New_York' });
+}
+
+// обновление каждую секунду
+setInterval(updateClocks, 1000);
+updateClocks();
+</script>
