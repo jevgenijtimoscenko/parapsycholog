@@ -62,51 +62,23 @@ function loadAnalytics() {
   gtag('js', new Date());
   gtag('config', 'G-VZY7NYD5E7');
 }
+// ===== CLOCK FUNCTION =====
+function updateClocks() {
+  const options = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  };
 
-document.addEventListener("DOMContentLoaded", () => {
+  const london = document.getElementById('london');
+  const riga = document.getElementById('riga');
+  const moscow = document.getElementById('moscow');
+  const newyork = document.getElementById('newyork');
 
-  // ===== BLOG ANIMATION =====
-  const posts = document.querySelectorAll(".blog-post");
-  posts.forEach(post => post.classList.add("fade-in"));
+  if (!london || !riga || !moscow || !newyork) return;
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
-    });
-  }, { threshold: 0.1 });
-
-  posts.forEach(el => observer.observe(el));
-
-  // ===== CLOCKS =====
-  updateClocks();
-  setInterval(updateClocks, 1000);
-
-  // ===== COOKIE =====
-  const banner = document.getElementById("cookie-banner");
-  if (!banner) return;
-
-  const consent = localStorage.getItem("cookieConsent");
-
-  if (consent) {
-    banner.style.display = "none";
-
-    if (consent === "accepted") {
-      loadAnalytics();
-    }
-  }
-
-  const acceptBtn = banner.querySelector(".accept-btn");
-  const rejectBtn = banner.querySelector(".reject-btn");
-
-  acceptBtn.addEventListener("click", () => {
-    localStorage.setItem("cookieConsent", "accepted");
-    banner.style.display = "none";
-    loadAnalytics();
-  });
-
-  rejectBtn.addEventListener("click", () => {
-    localStorage.setItem("cookieConsent", "rejected");
-    banner.style.display = "none";
-  });
-
-});
+  london.textContent = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' });
+  riga.textContent = new Date().toLocaleTimeString('lv-LV', { ...options, timeZone: 'Europe/Riga' });
+  moscow.textContent = new Date().toLocaleTimeString('ru-RU', { ...options, timeZone: 'Europe/Moscow' });
+  newyork.textContent = new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/New_York' });
+}
