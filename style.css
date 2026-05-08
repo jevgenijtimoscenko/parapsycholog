@@ -529,3 +529,12 @@ a.highlight:hover {
   color: #aaa;
   text-align: center;
 }
+
+
+.author-sign {
+    text-align: right;
+    font-style: italic;
+    font-size: 14px;
+    color: #777;
+    margin-right: 20px;
+}
