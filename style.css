@@ -531,6 +531,15 @@ a.highlight:hover {
 }
 
 
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
 .author-sign {
     text-align: right;
     font-style: italic;
