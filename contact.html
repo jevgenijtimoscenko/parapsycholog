@@ -45,20 +45,20 @@
     </section>
   </main>
   
-  <section class="contact-form-section">
+ <section class="contact-form-section">
 
   <h2>Написать мне</h2>
 
-  <form action="https://formspree.io/f/xzdojdze" method="POST">
+  <form id="contact-form">
 
     <input type="text"
            name="name"
            placeholder="Ваше имя"
            required>
 
-    <input type="email"
-           name="email"
-           placeholder="Ваш Email"
+    <input type="tel"
+           name="phone"
+           placeholder="Ваш номер телефона"
            required>
 
     <textarea name="message"
@@ -66,11 +66,16 @@
               rows="6"
               required></textarea>
 
-    <button type="submit">Отправить сообщение ✨</button>
+    <button type="submit">
+      Отправить сообщение ✨
+    </button>
 
   </form>
 
+  <p id="form-status"></p>
+
 </section>
+
 
   <footer>
     
