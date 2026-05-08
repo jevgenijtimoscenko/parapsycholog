@@ -31,7 +31,23 @@
 
   <main>
 
- <audio id="bgMusic" loop> <source src="music.mp3" type="audio/mpeg"> </audio> <button onclick="document.getElementById('bgMusic').play()">Включить музыку</button> <button onclick="document.getElementById('bgMusic').pause()">Выключить музыку</button>
+<div class="music-player">
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="music-btn play-btn"
+    onclick="document.getElementById('bgMusic').play()">
+    ✨ Включить музыку
+  </button>
+
+  <button class="music-btn pause-btn"
+    onclick="document.getElementById('bgMusic').pause()">
+    🌙 Выключить музыку
+  </button>
+
+</div>
 
     <section class="intro">
       <h2>Добро пожаловать!</h2>
