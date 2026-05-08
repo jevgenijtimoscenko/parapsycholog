@@ -547,3 +547,32 @@ header h1 {
     color: #777;
     margin-right: 20px;
 }
+
+
+.music-player {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.music-btn {
+  background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+  color: #d4af37;
+  border: 1px solid #c8a45d;
+  padding: 12px 22px;
+  margin: 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(200,164,93,0.25);
+}
+
+.music-btn:hover {
+  transform: scale(1.05);
+  background: #3a3a3a;
+  box-shadow: 0 0 18px rgba(200,164,93,0.6);
+}
+
+.music-btn:active {
+  transform: scale(0.98);
+}
