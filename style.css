@@ -660,3 +660,19 @@ header h1 {
   transform: scale(1.03);
   box-shadow: 0 0 15px rgba(200,164,93,0.5);
 }
+
+.hero-banner{
+    width:100%;
+    max-width:1600px;
+    margin:30px auto 40px;
+    padding:0 20px;
+    box-sizing:border-box;
+}
+
+.hero-banner img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:15px;
+    box-shadow:0 0 35px rgba(0,0,0,.45);
+}
