@@ -676,3 +676,13 @@ header h1 {
     border-radius:15px;
     box-shadow:0 0 35px rgba(0,0,0,.45);
 }
+
+.energy-poster{
+    display:block;
+    max-width:100%;
+    width:100%;
+    height:auto;
+    margin:25px auto 35px;
+    border-radius:12px;
+    box-sizing:border-box;
+}
