@@ -691,41 +691,47 @@ header h1 {
 .contact-buttons{
     display:flex;
     justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    margin:40px auto 50px;
+    margin:45px auto 60px;
 }
 
 .contact-btn{
     display:inline-flex;
     align-items:center;
-    gap:12px;
+    gap:14px;
 
-    padding:15px 30px;
+    padding:18px 42px;
 
-    background:linear-gradient(180deg,#2b2b2b,#111);
-    color:#d4af37;
+    background:linear-gradient(180deg,#242424,#0f0f0f);
+    color:#d8b45b;
 
-    border:1px solid #aa9102;
-    border-radius:12px;
+    border:2px solid #aa9102;
+    border-radius:14px;
 
     text-decoration:none;
-    font-size:18px;
+    font-size:20px;
     font-weight:600;
+    letter-spacing:.4px;
 
-    box-shadow:0 0 15px rgba(170,145,2,.35);
+    box-shadow:
+        0 0 10px rgba(170,145,2,.35),
+        inset 0 0 8px rgba(255,215,0,.08);
 
-    transition:all .3s ease;
+    transition:all .35s ease;
 }
 
 .contact-btn i{
-    font-size:22px;
+    font-size:26px;
 }
 
 .contact-btn:hover{
-    background:linear-gradient(180deg,#3b3b3b,#1a1a1a);
-    color:#ffe08a;
-    box-shadow:0 0 25px rgba(170,145,2,.7);
-    transform:translateY(-2px);
-}
 
+    color:#fff4c6;
+
+    border-color:#d4af37;
+
+    box-shadow:
+        0 0 25px rgba(212,175,55,.75),
+        0 0 40px rgba(212,175,55,.35);
+
+    transform:translateY(-3px) scale(1.02);
+}
