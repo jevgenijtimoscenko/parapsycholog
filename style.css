@@ -762,3 +762,29 @@ header h1 {
     background:#222;
     box-shadow:0 0 15px rgba(170,145,2,.5);
 }
+
+.service-whatsapp{
+    display:none;
+    margin-top:18px;
+    padding:12px 20px;
+
+    background:#111;
+    color:#d4af37 !important;
+
+    border:1px solid #aa9102;
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.service-whatsapp:link,
+.service-whatsapp:visited{
+    color:#d4af37;
+}
+
+.service-whatsapp:hover{
+    color:#fff4c6;
+    background:#222;
+}
