@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Student Register | Parapsycholog.uk</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .student-register {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 35px 25px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,164,93,0.28);
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(200,164,93,0.12);
+      overflow-x: auto;
+    }
+
+    .student-register h2 {
+      color: #c8a45d;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .student-register .intro-text {
+      color: #dcd2c0;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0 auto 30px;
+      max-width: 750px;
+    }
+
+    .register-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 650px;
+      background: rgba(0,0,0,0.18);
+    }
+
+    .register-table th {
+      background: linear-gradient(90deg, #252525, #111);
+      color: #c8a45d;
+      padding: 15px 12px;
+      border-bottom: 1px solid #aa9102;
+      text-align: left;
+    }
+
+    .register-table td {
+      padding: 14px 12px;
+      color: #e6dcc6;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      text-align: left;
+    }
+
+    .register-table tr:hover td {
+      background: rgba(200,164,93,0.06);
+    }
+
+    .status-certified {
+      color: #d4af37;
+      font-weight: bold;
+    }
+
+    .register-note {
+      margin-top: 25px;
+      padding: 15px;
+      border-left: 2px solid #c8a45d;
+      color: #aaa;
+      text-align: left;
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 25px;
+      color: #c8a45d;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: #fff4c6;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      .student-register {
+        margin: 30px 15px;
+        padding: 25px 15px;
+      }
+
+      .student-register h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Parapsychology School</h1>
+    <p class="author-sign">Parapsycholog.uk</p>
+  </header>
+
+  <main>
+    <section class="student-register">
+      <h2>Student Register</h2>
+
+      <p class="intro-text">
+        This page is used to verify that a person has an official
+        student record with Parapsycholog.uk.
+      </p>
+
+      <table class="register-table">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Course</th>
+            <th>Status</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Add students below this line -->
+
+          <tr>
+            <td>PSY-001</td>
+            <td>Student Name</td>
+            <td>Parapsychology</td>
+            <td class="status-certified">Certified</td>
+            <td>2026</td>
+          </tr>
+
+          <!-- Example:
+          <tr>
+            <td>PSY-002</td>
+            <td>Another Student</td>
+            <td>Parapsychology</td>
+            <td class="status-certified">Certified</td>
+            <td>2026</td>
+          </tr>
+          -->
+
+        </tbody>
+      </table>
+
+      <div class="register-note">
+        <strong>Verification notice:</strong>
+        This register confirms that the person listed above has a
+        student record with Parapsycholog.uk. The information displayed
+        on this page is limited to verification purposes.
+      </div>
+
+      <a class="back-link" href="index.html">← Back to Parapsycholog.uk</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Parapsycholog. All rights reserved. <span class="psi-symbol">Ψ</span></p>
+  </footer>
+
+</body>
+</html>
