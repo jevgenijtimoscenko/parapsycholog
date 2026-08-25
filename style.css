@@ -736,5 +736,41 @@ header h1 {
     transform:translateY(-3px) scale(1.02);
 }
 
+    .student-id-guide {
+      margin: 30px auto;
+      padding: 20px 25px;
+      max-width: 750px;
+      background: rgba(200,164,93,0.05);
+      border: 1px solid rgba(200,164,93,0.2);
+      border-radius: 12px;
+      text-align: left;
+    }
 
+    .student-id-guide h3 {
+      color: #c8a45d;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .student-id-guide p {
+      color: #ccc;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .student-id-guide ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+    }
+
+    .student-id-guide li {
+      padding: 8px 0;
+      color: #e6dcc6;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .student-id-guide li strong {
+      color: #d4af37;
+    }
 
