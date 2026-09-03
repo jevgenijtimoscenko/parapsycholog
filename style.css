@@ -153,39 +153,6 @@ footer hr {
   gap: 1.5rem;
 }
 
-.service-card {
-  background-color: #161616;
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 1.5rem;
-  width: 300px;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-}
-
-.service-card:hover {
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
-  transform: translateY(-5px);
-}
-
-.service-card h3 {
-  color: #f1d27a;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.service-card p {
-  color: #ccc;
-  font-size: 0.95rem;
-}
-
-.service-card .price {
-  color: #d4af37;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  font-size: 1rem;
-}
 
 .payment-info {
   margin-top: 2rem;
