@@ -753,3 +753,170 @@ header h1 {
     padding-left: 20px;
   }
 }
+
+
+/* =========================
+   ГЛАВНЫЙ ЭКРАН
+========================= */
+
+.hero {
+  max-width: 1200px;
+  min-height: 680px;
+  margin: 0 auto;
+  padding: 60px 40px;
+
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  box-sizing: border-box;
+}
+
+.hero-content {
+  width: 50%;
+  z-index: 2;
+}
+
+.hero-label {
+  color: #c8a45d;
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin: 0 0 25px;
+}
+
+.hero h2 {
+  font-size: 52px;
+  line-height: 1.12;
+  font-weight: 500;
+  margin: 0 0 25px;
+  color: #f0e6d2;
+}
+
+.hero-text {
+  max-width: 520px;
+  color: #cccccc;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 14px 30px;
+
+  background: #c8a45d;
+  border: 1px solid #c8a45d;
+
+  color: #111;
+  text-decoration: none;
+
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: transparent;
+  color: #c8a45d;
+}
+
+.hero-btn-outline {
+  background: transparent;
+  color: #c8a45d;
+}
+
+.hero-btn-outline:hover {
+  background: #c8a45d;
+  color: #111;
+}
+
+
+/* =========================
+   ФОТО
+========================= */
+
+.hero-photo {
+  width: 50%;
+  height: 650px;
+
+  overflow: hidden;
+  position: relative;
+
+  border-radius: 6px;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center top;
+}
+
+
+/* Мягкое затемнение слева фотографии */
+
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(17, 17, 17, 0.35),
+    transparent 35%
+  );
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================= */
+
+@media (max-width: 800px) {
+
+  .hero {
+    min-height: auto;
+    padding: 35px 20px 50px;
+
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 520px;
+  }
+
+  .hero h2 {
+    font-size: 38px;
+  }
+
+  .hero-text {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-btn {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
