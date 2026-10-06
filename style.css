@@ -841,13 +841,11 @@ header h1 {
 ========================= */
 
 .hero-photo {
-  width: 500px;
-  height: 500px;
+  width: 50%;
+  height: 650px;
   overflow: hidden;
   position: relative;
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 30px rgba(200,164,93,0.25);
+  border-radius: 6px;
 }
 .hero-photo img {
   width: 100%;
