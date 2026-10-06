@@ -849,26 +849,6 @@ header h1 {
     line-height: 1.7;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-  }
-
-  .hero-btn {
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-  }
-}
-
-.resources-section {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 1.5rem 2rem;
-  border: 1px solid #555;
-  border-radius: 10px;
-  background-color: #242424;
-  box-sizing: border-box;
-}
 
 .resources-section h2 {
   margin-top: 0;
@@ -917,42 +897,7 @@ header h1 {
 
 @media (max-width: 800px) {
 
-  .hero-photo {
-    width: 100%;
-    max-width: 430px;
-    aspect-ratio: 2 / 3;
-    border-radius: 12px;
-  }
 
-}
-
-/* =========================================
-   МОБИЛЬНАЯ ВЕРСИЯ — ФИНАЛЬНАЯ
-========================================= */
-
-@media (max-width: 800px) {
-
-  /* Общие настройки */
-  html,
-  body {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  main {
-    padding: 1rem;
-  }
-
-
-  /* HEADER */
-  header {
-    padding: 20px 15px;
-  }
-
-  header h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
 
   header p {
     font-size: 14px;
@@ -1162,6 +1107,334 @@ header h1 {
 
   .hero-text {
     font-size: 15px;
+  }
+
+}
+
+/* =========================================
+   HERO — PHOTO
+========================================= */
+
+.hero-photo {
+  width: 430px;
+  height: 645px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
+
+/* =========================================
+   MOBILE VERSION
+========================================= */
+
+@media (max-width: 800px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  header {
+    padding: 20px 15px;
+  }
+
+  header h1 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  header p {
+    font-size: 14px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 14px;
+  }
+
+  nav a {
+    margin: 0;
+    font-size: 13px;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    width: 100%;
+    min-height: auto;
+    padding: 35px 5px 50px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: 30px;
+
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .hero-photo {
+    order: 1;
+
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+
+    border-radius: 12px;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero-content {
+    order: 2;
+
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+
+  .hero h2 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-btn {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 14px 20px;
+  }
+
+
+  /* SERVICES */
+
+  .services-section {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .services-section h2 {
+    font-size: 28px;
+  }
+
+  .service-list {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 15px 0;
+    padding: 25px 20px;
+    box-sizing: border-box;
+  }
+
+  .service-card h3 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+
+  /* INTRO / CONTENT BOXES */
+
+  .intro {
+    width: 100%;
+    max-width: 100%;
+    margin: 30px 0;
+    padding: 25px 20px;
+    box-sizing: border-box;
+  }
+
+  .intro h2 {
+    font-size: 27px;
+  }
+
+  .intro p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .about-work {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 25px 20px;
+  }
+
+  .services-intro {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+
+  /* CONTACT */
+
+  .contact-section {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 380px;
+    box-sizing: border-box;
+  }
+
+  .contact-form-section {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 35px 0;
+    padding: 25px 20px;
+  }
+
+  .contact-form-section h2 {
+    font-size: 28px;
+  }
+
+  .contact-btn {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    padding: 16px 20px;
+    font-size: 17px;
+  }
+
+
+  /* GALLERY */
+
+  .gallery {
+    gap: 15px;
+  }
+
+  .gallery-item {
+    width: calc(50% - 10px);
+  }
+
+
+  /* RESOURCES */
+
+  .resources-section {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+  }
+
+
+  /* COOKIE */
+
+  .cookie-banner {
+    width: calc(100% - 30px);
+    box-sizing: border-box;
+
+    bottom: 15px;
+    padding: 15px;
+
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cookie-banner .buttons {
+    width: 100%;
+    justify-content: center;
+  }
+
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  header h1 {
+    font-size: 26px;
+  }
+
+  nav {
+    gap: 6px 10px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero-photo {
+    max-width: 330px;
+  }
+
+  .hero h2 {
+    font-size: 30px;
+  }
+
+  .hero-text {
+    font-size: 15px;
+  }
+
+  .gallery-item {
+    width: 100%;
   }
 
 }
